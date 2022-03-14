@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, useNavigate } from "react-router-dom";
-import { goods } from "../../../data/goods";
+import goods from "../../../server/goods.json";
 import "./ItemPage.css"
 
 export const ItemPage = () => {
@@ -18,7 +18,7 @@ export const ItemPage = () => {
                     <img className="item__img" src={good.poster} alt="book_img"/>
                     <p className="item__name">{good.name}</p>
                     <div className="item__price">{good.price} грн.</div>
-                    <img src="https://w7.pngwing.com/pngs/531/313/png-transparent-logo-organization-human-back-business-back-button-angle-text-trademark.png" alt="back_img" className="item__button-back" onClick={() => goBack()} />
+                    <img src="https://cdn-icons-png.flaticon.com/512/17/17699.png" alt="back_img" className="item__button-back" onClick={() => goBack()} />
                 </div>
                 </>
             }

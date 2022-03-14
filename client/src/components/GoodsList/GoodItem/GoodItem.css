@@ -8,6 +8,11 @@
     border-radius: 10px;
 }
 
+.good {
+    text-decoration: none;
+    color: #666;
+}
+
 .goods__item:hover {
     background-color: grey;
 }

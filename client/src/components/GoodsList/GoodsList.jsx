@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { GoodItem } from "./GoodItem/GoodItem";
 import { Search } from "../Search/Search";
-import { goods } from "../../data/goods";
+import goods from "../../server/goods.json";
 import "./GoodsList.css"
 
 export const GoodsList = () => {
