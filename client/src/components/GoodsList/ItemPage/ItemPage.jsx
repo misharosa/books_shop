@@ -8,10 +8,14 @@ export const ItemPage = () => {
     const good = goods.find(good => good.id === id)
 
     return (
-        <div className="item">
-            <img className="item_img" src={good.poster} alt="book_img"/>
-            <p className="item_name">{good.name}</p>
-            <div className="item_price">{good.price} грн.</div>
-        </div>
+        <>
+            { good !== undefined &&
+                <div className="item">
+                <img className="item_img" src={good.poster} alt="book_img"/>
+                <p className="item_name">{good.name}</p>
+                <div className="item_price">{good.price} грн.</div>
+                </div>
+            }
+                </>
     );
 };

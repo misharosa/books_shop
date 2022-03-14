@@ -1,8 +1,8 @@
 import React, { useMemo, useState } from 'react';
 import { GoodItem } from "./GoodItem/GoodItem";
-import "./GoodsList.css"
-import { goods } from "../../data/goods";
 import { Search } from "../Search/Search";
+import { goods } from "../../data/goods";
+import "./GoodsList.css"
 
 export const GoodsList = () => {
 

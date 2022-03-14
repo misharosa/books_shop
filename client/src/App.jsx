@@ -11,7 +11,7 @@ export const App = () => {
             <Header />
             <Routes>
                 <Route path={`/:id`} element={<ItemPage />} />
-                <Route path="/" element={<GoodsList />} />
+                <Route path="/books_shop" element={<GoodsList />} />
             </Routes>
             <Footer />
         </div>
