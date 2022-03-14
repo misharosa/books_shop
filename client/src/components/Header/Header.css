@@ -1,0 +1,22 @@
+.header__list {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    color: #FFF;
+    background-color: blue;
+
+    height: 50px;
+
+    list-style: none;
+}
+
+.header__item {
+    cursor: pointer;
+    text-decoration: none;
+    color: #fff;
+}
+
+a.text:active {
+    color: red;
+}
