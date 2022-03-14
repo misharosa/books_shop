@@ -18,7 +18,7 @@ export const ItemPage = () => {
                     <img className="item__img" src={good.poster} alt="book_img"/>
                     <p className="item__name">{good.name}</p>
                     <div className="item__price">{good.price} грн.</div>
-                    <img src="https://www.pngkit.com/png/detail/765-7656634_gambar-tombol-kembali.png" alt="back_img" className="item__button-back" onClick={() => goBack()} />
+                    <img src="https://cdn-icons-png.flaticon.com/512/17/17699.png" alt="back_img" className="item__button-back" onClick={() => goBack()} />
                 </div>
                 </>
             }
