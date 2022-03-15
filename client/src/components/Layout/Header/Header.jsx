@@ -7,9 +7,9 @@ export const Header = () => {
        <div className="header-container">
            <ul className="header__list">
                <Link to="/books_shop" className="header__item">Home</Link>
-               <li className="header__item">Search</li>
-               <li className="header__item">List</li>
-               <Link to="/" className="header__item">Exit</Link>
+               <Link to="/books_shop" className="header__item">List</Link>
+               <Link to="/books_shop" className="header__item">Other</Link>
+               <Link to="/books_shop" className="header__item">Exit</Link>
            </ul>
        </div>
     );

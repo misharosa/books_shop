@@ -1,0 +1,16 @@
+.store__list {
+    display: inline-flex;
+    justify-content: center;
+}
+
+.store__item {
+    cursor: pointer;
+    color: #FFFFFF;
+    background-color: #4682B4;
+    text-decoration: none;
+    font-family: Roboto,sans-serif;
+    padding: 20px;
+    margin: 10px;
+    min-width: 150px;
+    border-radius: 10px;
+}

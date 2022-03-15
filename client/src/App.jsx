@@ -1,24 +1,37 @@
-import { GoodsList } from "./components/GoodsList/GoodsList";
+import { BooksList } from "./components/BooksList/BooksList";
 import "./App.css"
 import { Route, Routes } from "react-router-dom";
-import { ItemPage } from "./components/GoodsList/ItemPage/ItemPage";
+import { ItemBookPage } from "./components/BooksList/BookItemPage/BookItemPage";
 import Layout from "./components/Layout/Layout";
-import { useEffect } from "react";
-import axios from "axios";
+import {useEffect, useState} from "react";
+import { HomePage } from "./components/HomePage/HomePage";
+import { getBooksFromServer, getMagazinesFromServer } from "./api/api";
+import { MagazinesList } from "./components/MagazinesList/MagazinesList";
+import { ItemMagazinePage } from "./components/MagazinesList/ItemMagazinePage/ItemMagazinePage";
 
 export const App = () => {
+    const [books, setBooks] = useState([])
+    const [magazines, setMagazines] = useState([])
 
-   useEffect(async () => {
-       const { data } = await axios("http://localhost:3001/goods")
-       console.log(data)
+   useEffect( () => {
+         async function fetchData() {
+             const getBooks = await getBooksFromServer()
+             const getMagazines = await getMagazinesFromServer()
+             setMagazines(getMagazines)
+             setBooks(getBooks)
+         }
+     fetchData()
    },[])
 
     return (
         <div className='App'>
             <Routes>
                 <Route element={<Layout />}>
-                    <Route path={`/:id`} element={<ItemPage />} />
-                    <Route path="/books_shop" element={<GoodsList  />} />
+                    <Route path={'/books_shop'} element={<HomePage />} />
+                    <Route path="/books_shop/books" element={<BooksList books={books} />} />
+                    <Route path="/books_shop/magazines" element={<MagazinesList magazines={magazines} />} />
+                    <Route path="/books_shop/books/:id" element={<ItemBookPage books={books} />} />
+                    <Route path="/books_shop/magazines/:name" element={<ItemMagazinePage magazines={magazines} />} />
                 </Route>
             </Routes>
         </div>

@@ -1,0 +1,27 @@
+.magazines__item {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 10px;
+    border: 1px solid silver;
+    border-radius: 10px;
+}
+
+.magazine {
+    text-decoration: none;
+    color: #666;
+}
+
+.magazines__item:hover {
+    background-color: grey;
+}
+
+.magazines__img {
+    height: 200px;
+    width: 200px;
+}
+
+.magazines__name {
+    margin-bottom: 10px;
+}
