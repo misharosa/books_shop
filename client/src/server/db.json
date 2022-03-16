@@ -1,32 +1,28 @@
 {
   "magazines": [
     {
+      "id": "1",
       "name":"AARP The Magazine",
       "poster": "https://photos.prnewswire.com/prnfull/20150729/249488",
-      "text": "oping off our list as the most circulated magazine is AARP The Magazine, which sports an impressive circulation of 23,608,221. AARP The Magazine reaches a readership of 36,800,000 people. Free to AARP members, The Magazine splits into three different versions, each for a different life stage for 50+ adults. Join AARP now to receive the bi-monthly magazine for free!",
-      "price": 150,
-      "id": 1
+      "price": 150
     },
     {
+      "id": "2",
       "name":"AARP Bulletin",
       "poster": "https://cdn2.creativecirclemedia.com/lascruces/medium/20200302-181832-20200302-181824-2014-10-17.pdf.jpg",
-      "text": " AARP Bulletin is next up with a circulation 22,669,110 and a remarkable readership of 30,376,000 people. The AARP Bulletin is also free to members of AARP, with issues published monthly. Get the latest health news for 50+ adults by joining AARP today!",
-      "price": 250,
-      "id": 2
+      "price": 250
     },
     {
+      "id": "3",
       "name":"Game Informer",
       "poster": "https://www.slashgear.com/img/gallery/mass-effect-is-dated-but-still-worth-playing-today/intro-1645732488.jpg",
-      "text": "The world's #1 video game magazine completes the top three - Game Informer Magazine! With a circulation of 6 million, Game Informer shapes the video game industry with extensive knowledge and insight. Get the latest news, the best reviews, and access to the premier online community with a subscription to Game Informer Magazine!",
-      "price": 100,
-      "id": 3
+      "price": 100
     },
     {
+      "id": "4",
       "name":"Good Housekeeping",
       "poster": "https://www.picclickimg.com/d/l400/pict/304371503836_/Good-Housekeeping-Magazine-Get-Organized-Time-Saving-Meals.jpg",
-      "text": " Good Housekeeping Magazine comes in at number 4 with a circulation of 4,014,028. Their readership reaches 16,800,000 people and a notable 61.1 million people across their digital, social, and print platforms. Receive tried-and-trusted advice from the experts at GH labs with a subscription today! If you prefer to read digitally, we offer Good Housekeeping Digital as well!",
-      "price": 320,
-      "id": 4
+      "price": 320
     }
   ],
   "books": [

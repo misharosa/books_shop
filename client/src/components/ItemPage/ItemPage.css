@@ -1,4 +1,4 @@
-.magazine__item {
+.good__item {
     position: relative;
     display: inline-flex;
     flex-direction: column;
@@ -11,7 +11,7 @@
     margin-top: 100px;
 }
 
-.magazine__item-img {
+.good__item-img {
     height: 400px;
     width: 400px;
     margin-bottom: 10px;
@@ -19,22 +19,18 @@
     border-radius: 10px;
 }
 
-.magazine__item-name {
+.good__item__name {
     margin-bottom: 10px;
 }
 
-.magazine__item-price {
+.good__item__price {
     margin-bottom: 10px;
 }
 
-.magazine__item_button-back {
+.good__item_button-back {
     position: absolute;
     height: 30px;
     top: 5px;
     left: 10px;
     cursor: pointer;
-}
-
-.magazine__item-text {
-    width: 300px;
 }

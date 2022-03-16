@@ -1,17 +1,8 @@
 import axios from "axios";
 
-export const getBooksFromServer = async () => {
+export const getItemsFromServer = async (name) => {
     try {
-        const { data } = await axios("http://localhost:3001/books")
-        return data
-    } catch (e) {
-        console.log(e.message)
-    }
-}
-
-export const getMagazinesFromServer = async () => {
-    try {
-        const { data } = await axios("http://localhost:3001/magazines")
+        const { data } = await axios(`http://localhost:3001/${name}`)
         return data
     } catch (e) {
         console.log(e.message)
