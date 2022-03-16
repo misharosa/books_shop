@@ -4,7 +4,7 @@ import "./ItemPage.css"
 import { getItemsFromServer } from "../../api/api";
 
 const ItemPage = () => {
-    const { id, name } = useParams()
+    const { id,name } = useParams()
     const [item, setItem] = useState(undefined)
 
     useEffect(() => {
@@ -20,7 +20,7 @@ const ItemPage = () => {
 
     return (
         <>
-        {item &&
+        {item  &&
             <div className="good__item">
                 <img className="good__item-img" src={item.poster} alt="book_img"/>
                 <p className="good__item-name">{item.name}</p>

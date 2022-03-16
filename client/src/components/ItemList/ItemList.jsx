@@ -1,13 +1,12 @@
 import React, {useEffect, useMemo, useState} from 'react';
 import { useParams } from "react-router-dom";
 import { getItemsFromServer } from "../../api/api";
-import { Search } from "./Search/Search";
+import { Search } from "../Search/Search";
 import { GoodItem } from "./GoodsItem/GoodItem";
 import "./ItemsList.css"
 
-const ItemsList = () => {
+const ItemsList = ({ items,setItems }) => {
     const { name } = useParams()
-    const [items, setItems] = useState([])
     const [filterValue, setFilterValue] = useState('')
 
     useEffect( () => {
@@ -23,7 +22,6 @@ const ItemsList = () => {
             book.name.toLowerCase().includes(filterValue.toLowerCase())
         ))
     }, [filterValue, items])
-
     return (
         <>
             <Search
