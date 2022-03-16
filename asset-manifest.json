@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/books_shop/static/css/main.15074267.chunk.css",
+    "main.css": "/books_shop/static/css/main.6adf9d36.chunk.css",
     "main.js": "/books_shop/static/js/main.b7bba613.chunk.js",
     "main.js.map": "/books_shop/static/js/main.b7bba613.chunk.js.map",
     "runtime-main.js": "/books_shop/static/js/runtime-main.bade7935.js",
@@ -8,13 +8,13 @@
     "static/js/2.cd907d24.chunk.js": "/books_shop/static/js/2.cd907d24.chunk.js",
     "static/js/2.cd907d24.chunk.js.map": "/books_shop/static/js/2.cd907d24.chunk.js.map",
     "index.html": "/books_shop/index.html",
-    "static/css/main.15074267.chunk.css.map": "/books_shop/static/css/main.15074267.chunk.css.map",
+    "static/css/main.6adf9d36.chunk.css.map": "/books_shop/static/css/main.6adf9d36.chunk.css.map",
     "static/js/2.cd907d24.chunk.js.LICENSE.txt": "/books_shop/static/js/2.cd907d24.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.bade7935.js",
     "static/js/2.cd907d24.chunk.js",
-    "static/css/main.15074267.chunk.css",
+    "static/css/main.6adf9d36.chunk.css",
     "static/js/main.b7bba613.chunk.js"
   ]
 }
