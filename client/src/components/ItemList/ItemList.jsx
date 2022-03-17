@@ -5,27 +5,19 @@ import { Search } from "../Search/Search";
 import { GoodItem } from "./GoodsItem/GoodItem";
 import "./ItemsList.css"
 
-const ItemsList = ({items, setItems}) => {
+const ItemsList = ({ items, setItems }) => {
     const { name } = useParams()
 
     const [filterValue, setFilterValue] = useState('')
-    const { data, isLoading } = useGetItemsFromQueryServer(name)
+    const { data } = useGetItemsFromQueryServer(name)
 
     useEffect(() => {
-        data &&
-        setItems(data)
+        (data && setItems(data))
     }, [data, setItems])
 
     const handleItemsFilter = useMemo(() => {
-        return items === undefined ? [] : items.filter(item => item.name.toLowerCase().includes(filterValue.toLowerCase()))
+        return items.filter(item => item.name.toLowerCase().includes(filterValue.toLowerCase()))
     },[items, filterValue])
-
-    if (isLoading) {
-        return <Search
-            setFilterValue={setFilterValue}
-            filterValue={filterValue}
-         />
-    }
 
     return (
         <>
