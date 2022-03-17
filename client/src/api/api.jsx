@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useQuery } from "react-query";
 
 export const getItemsFromServer = async (name) => {
     try {
@@ -7,4 +8,10 @@ export const getItemsFromServer = async (name) => {
     } catch (e) {
         console.log(e.message)
     }
+}
+
+export const useGetItemsFromQueryServer = (name) => {
+    return useQuery(name, () => getItemsFromServer(name), {
+        staleTime: 1000 * 60
+    })
 }

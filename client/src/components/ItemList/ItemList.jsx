@@ -1,27 +1,32 @@
 import React, {useEffect, useMemo, useState} from 'react';
 import { useParams } from "react-router-dom";
-import { getItemsFromServer } from "../../api/api";
+import { useGetItemsFromQueryServer} from "../../api/api";
 import { Search } from "../Search/Search";
 import { GoodItem } from "./GoodsItem/GoodItem";
 import "./ItemsList.css"
 
-const ItemsList = ({ items,setItems }) => {
+const ItemsList = ({items, setItems}) => {
     const { name } = useParams()
+
     const [filterValue, setFilterValue] = useState('')
+    const { data, isLoading } = useGetItemsFromQueryServer(name)
 
-    useEffect( () => {
-        async function getItems () {
-            const allProduct = await getItemsFromServer(name)
-            await setItems(allProduct)
-        }
-        getItems()
-    },[name, setItems])
+    useEffect(() => {
+        data &&
+        setItems(data)
+    }, [data, setItems])
 
-    const handleItemsFilter= useMemo(() => {
-        return items.filter(book => (
-            book.name.toLowerCase().includes(filterValue.toLowerCase())
-        ))
-    }, [filterValue, items])
+    const handleItemsFilter = useMemo(() => {
+        return items === undefined ? [] : items.filter(item => item.name.toLowerCase().includes(filterValue.toLowerCase()))
+    },[items, filterValue])
+
+    if (isLoading) {
+        return <Search
+            setFilterValue={setFilterValue}
+            filterValue={filterValue}
+         />
+    }
+
     return (
         <>
             <Search
@@ -40,5 +45,6 @@ const ItemsList = ({ items,setItems }) => {
         </>
     );
 };
+
 
 export default ItemsList;

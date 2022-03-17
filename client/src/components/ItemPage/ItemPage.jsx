@@ -1,19 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from "react-router-dom";
 import "./ItemPage.css"
-import { getItemsFromServer } from "../../api/api";
 
-const ItemPage = () => {
-    const { id,name } = useParams()
+const ItemPage = ({ items }) => {
+    const { id } = useParams()
     const [item, setItem] = useState(undefined)
 
     useEffect(() => {
-        async function getItems () {
-            const allProduct = await getItemsFromServer(name)
-            await setItem(allProduct.find(item=> item.id===id))
-        }
-        getItems()
-    },[id, name])
+        setItem(items.find(item => item.id === id))
+    },[id, items])
 
     const navigate = useNavigate()
     const goBack = () => navigate(-1)
