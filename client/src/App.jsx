@@ -8,6 +8,8 @@ import { useState } from "react";
 
 export const App = () => {
     const [items, setItems] = useState([])
+    const [item, setItem] = useState(undefined)
+    const [modalActive, setModalActive] = useState(false)
     const [allItemsObj, setAllItemsObj] = useState({})
 
     return (
@@ -27,8 +29,12 @@ export const App = () => {
                         <ItemPage
                             items={items}
                             setItems={setItems}
+                            item={item}
+                            setItem={setItem}
                             setAllItemsObj={setAllItemsObj}
                             allItemsObj={allItemsObj}
+                            modalActive={modalActive}
+                            setModalActive={setModalActive}
                         />}
                     />
                 </Route>
