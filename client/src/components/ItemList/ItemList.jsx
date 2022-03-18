@@ -1,19 +1,31 @@
-import React, {useEffect, useMemo, useState} from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useParams } from "react-router-dom";
-import { useGetItemsFromQueryServer} from "../../api/api";
+import { getItemsFromServer} from "../../api/api";
 import { Search } from "../Search/Search";
 import { GoodItem } from "./GoodsItem/GoodItem";
 import "./ItemsList.css"
 
-const ItemsList = ({ items, setItems }) => {
+const ItemsList = ({ items, setItems, allItemsObj, setAllItemsObj }) => {
     const { name } = useParams()
 
     const [filterValue, setFilterValue] = useState('')
-    const { data } = useGetItemsFromQueryServer(name)
 
     useEffect(() => {
-        (data && setItems(data))
-    }, [data, setItems])
+        if(!Object.keys(allItemsObj).includes(name)) {
+            const getItems = async () => {
+                return await getItemsFromServer(name)
+            }
+            getItems().then(r => {
+                setItems(r)
+                setAllItemsObj((prev) => ({
+                        ...prev,
+                        [name]: r
+                }))
+            })
+        } else {
+            setItems(allItemsObj[name])
+        }
+    }, [setItems, name, allItemsObj, setAllItemsObj])
 
     const handleItemsFilter = useMemo(() => {
         return items.filter(item => item.name.toLowerCase().includes(filterValue.toLowerCase()))

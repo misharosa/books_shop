@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from "react-router-dom";
 import "./ItemPage.css"
+// import {getItemsFromServer} from "../../api/api";
 
 const ItemPage = ({ items }) => {
     const { id } = useParams()
     const [item, setItem] = useState(undefined)
 
     useEffect(() => {
-        setItem(items.find(item => item.id === id))
+        (items && setItem(items.find(item => item.id === id)))
     },[id, items])
 
     const navigate = useNavigate()
