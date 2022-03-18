@@ -23,7 +23,14 @@ export const App = () => {
                             setAllItemsObj={setAllItemsObj}
                         />}
                     />
-                    <Route path={`/books_shop/:name/:id`} element={<ItemPage items={items} />} />
+                    <Route path={`/books_shop/:name/:id`} element={
+                        <ItemPage
+                            items={items}
+                            setItems={setItems}
+                            setAllItemsObj={setAllItemsObj}
+                            allItemsObj={allItemsObj}
+                        />}
+                    />
                 </Route>
             </Routes>
         </div>

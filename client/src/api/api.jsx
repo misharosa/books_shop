@@ -5,6 +5,6 @@ export const getItemsFromServer = async (name) => {
         const { data } = await axios(`http://localhost:3001/${name}`)
         return data
     } catch (e) {
-        console.log(e.message)
+        console.error(e.message)
     }
 }
