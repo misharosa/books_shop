@@ -1,5 +1,5 @@
 import './App.css';
-import { Route, Routes } from 'react-router-dom';
+import {Route, Routes} from 'react-router-dom';
 import Layout from './components/Layout/Layout';
 import { HomePage } from './components/HomePage/HomePage';
 import ItemsList from './components/ItemList/ItemList';
@@ -20,8 +20,6 @@ export const App = () => {
           <Route
             path={'/books_shop/:name'}
             element={
-              // Список реюзабельний, але це компонент, а не сторінка
-              // стоври окріме сторінки для книжок та журналів (або якусь динамічну сторінку, яка підійде і для книжок і для журналів)
               <ItemsList
                 items={items}
                 setItems={setItems}
@@ -34,7 +32,6 @@ export const App = () => {
             path={`/books_shop/:name/:id`}
             element={
               <ItemPage
-                items={items}
                 setItems={setItems}
                 item={item}
                 setItem={setItem}
