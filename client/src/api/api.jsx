@@ -1,8 +1,5 @@
 import axios from 'axios';
-// import {useParams} from "react-router-dom";
 
-// const { name, id } = useParams()
-// console.log(name, id)
 export const getItemsFromServer = async (name) => {
   try {
     const { data } = await axios(`http://localhost:3001/${name}`);
@@ -15,7 +12,7 @@ export const getItemsFromServer = async (name) => {
 // edit item
 export const editItemFromServer = async (name, item) => {
   try {
-    const { data } = await axios.patch(`http://localhost:3001/${name}/${item.id}`, item);
+    const { data } = await axios.patch(`http://localhost:3001/books/${item.id}`, item);
     return data;
   } catch (e) {
     console.error(e.message);
@@ -23,9 +20,9 @@ export const editItemFromServer = async (name, item) => {
 };
 
 // delete item
-export const deleteItemsFromServer = async (name, itemId) => {
+export const deleteItemsFromServer = async (itemId) => {
   try {
-    const { data } = await axios.delete(`http://localhost:3001/${name}/${itemId}`);
+    const { data } = await axios.delete(`http://localhost:3001/books/${itemId}`);
     return data;
   } catch (e) {
     console.error(e.message);

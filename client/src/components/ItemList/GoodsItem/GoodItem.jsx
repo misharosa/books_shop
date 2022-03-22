@@ -1,14 +1,48 @@
 import React from 'react';
 import "./GoodItem.css"
-import { Link } from "react-router-dom";
+import { Modal } from "../../Modal/Modal";
 
-export const GoodItem = ({ item, name }) => {
+export const GoodItem = (
+    {
+        item,
+        handleDelete,
+        modalActive,
+        setModalActive,
+        handleEdit,
+        nameEdit,
+        setNameEdit,
+        priceEdit,
+        setPriceEdit,
+        editItem,
+        handleFind
+    }) => {
 
     return (
-        <Link className="good" to={`/books_shop/${name}/${item.id}`}>
-            <img className="goods_img" src={item.poster} alt="book_img"/>
-            <p className="goods_name">{item.name}</p>
-            <div className="goods_price">{item.price} грн.</div>
-        </Link>
+        <>
+            <div>
+                <div className="good">
+                    <img className="goods_img" src={item.poster} alt="book_img"/>
+                    <p className="goods_name">{item.name}</p>
+                    <div className="goods_price">{item.price} грн.</div>
+                </div>
+                <div className="good__item-buttons">
+                    <button className="good__item-button open-modal" onClick={() => handleFind(item.id)}>Edit</button>
+                    <button className="good__item-button" onClick={() => handleDelete(item.id)}>Delete</button>
+                </div>
+            </div>
+            <Modal active={modalActive} setActive={setModalActive}>
+                <form onSubmit={(e) => handleEdit(e, editItem)} className="form">
+                    <label >
+                        Name:
+                        <textarea className="form__item" value={nameEdit} onChange={(e) => setNameEdit(e.target.value) } />
+                    </label>
+                    <label>
+                        Price:
+                        <input className="form__item" value={priceEdit} onChange={(e) => setPriceEdit(e.target.value) } />
+                    </label>
+                    <button type="submit" className="form__button">Submit</button>
+                </form>
+            </Modal>
+        </>
     );
 };

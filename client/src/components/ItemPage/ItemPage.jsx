@@ -4,7 +4,7 @@ import "./ItemPage.css"
 import { Modal } from "../Modal/Modal";
 import { deleteItemsFromServer, editItemFromServer, getItemsFromServer } from "../../api/api";
 
-const ItemPage = (
+export const ItemPage = (
     {
         setItems,
         setAllItemsObj,
@@ -87,23 +87,8 @@ const ItemPage = (
                 </div>
                 <img src="https://cdn-icons-png.flaticon.com/512/17/17699.png" alt="back_img" className="good__item_button-back" onClick={() => goBack()} />
             </div>
-            <Modal active={modalActive} setActive={setModalActive}>
-                <form onSubmit={handleEdit} className="form">
-                    <label >
-                        Name:
-                        <textarea className="form__item" value={nameEdit} onChange={(e) => setNameEdit(e.target.value) } />
-                    </label>
-                    <label>
-                        Price:
-                        <input className="form__item" value={priceEdit} onChange={(e) => setPriceEdit(e.target.value) } />
-                    </label>
-                    <button type="submit" className="form__button">Submit</button>
-                </form>
-            </Modal>
             </>
         }
         </>
     );
 };
-
-export default ItemPage;

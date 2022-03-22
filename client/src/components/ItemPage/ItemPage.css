@@ -34,24 +34,3 @@
     left: 10px;
     cursor: pointer;
 }
-
-.good__item-buttons {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.good__item-button {
-    cursor: pointer;
-    border-radius: 4px;
-    border: solid 1px #666;
-    margin-left: 10px;
-    width: 70px;
-    padding: 10px;
-    text-decoration: none;
-    color:black;
-}
-
-.good__item-button:hover {
-    background-color: #555;
-}

@@ -34,18 +34,11 @@
       "price": "750"
     },
     {
-      "id": "js03",
-      "category": "books",
-      "name": "Алекс Бенкс та Єва Порселло. React та Redux",
-      "poster": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=667&q=80",
-      "price": "950"
-    },
-    {
       "id": "data01",
       "category": "books",
       "name": "Алекс Бенкс та Єва Порселло. GraphQL",
       "poster": "https://images.unsplash.com/photo-1532012197267-da84d127e765?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80",
-      "price": 850
+      "price": "850"
     },
     {
       "id": "js04",
@@ -99,9 +92,9 @@
     {
       "id": "sticker03",
       "category": "stickers",
-      "name": "Набір наліпок FullStack",
+      "name": "Алекс Бенкс та Єва Порселло. GraphQL",
       "poster": "https://images.unsplash.com/photo-1593754500338-969a679d5ca3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
-      "price": 1550
+      "price": "850"
     }
   ]
 }
