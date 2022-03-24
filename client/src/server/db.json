@@ -23,6 +23,12 @@
       "name": "Good Housekeeping",
       "poster": "https://www.picclickimg.com/d/l400/pict/304371503836_/Good-Housekeeping-Magazine-Get-Organized-Time-Saving-Meals.jpg",
       "price": 320
+    },
+    {
+      "name": "Mobile",
+      "price": "2000",
+      "id": 5,
+      "poster": "https://cdn4.vectorstock.com/i/1000x1000/23/48/shoping-and-different-goods-vector-4422348.jpg"
     }
   ],
   "books": [
@@ -95,6 +101,12 @@
       "name": "Алекс Бенкс та Єва Порселло. GraphQL",
       "poster": "https://images.unsplash.com/photo-1593754500338-969a679d5ca3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
       "price": "850"
+    },
+    {
+      "name": "Apple",
+      "price": "123",
+      "id": 11,
+      "poster": "https://cdn4.vectorstock.com/i/1000x1000/23/48/shoping-and-different-goods-vector-4422348.jpg"
     }
   ]
 }

@@ -5,10 +5,12 @@ import { Search } from "../Search/Search";
 
 export const ItemsList = (
     {
+        modalEditActive,
+        setModalEditActive,
+        modalAddActive,
+        setModalAddActive,
         items,
         handleDelete,
-        modalActive,
-        setModalActive,
         handleEdit,
         nameEdit,
         setNameEdit,
@@ -18,11 +20,22 @@ export const ItemsList = (
         setEditItem,
         handleFind,
         filterValue,
-        setFilterValue
+        setFilterValue,
+        handleAdd
     }) => {
   return (
     <>
-      <Search setFilterValue={setFilterValue} filterValue={filterValue} />
+      <Search
+          modalAddActive={modalAddActive}
+          setModalAddActive={setModalAddActive}
+          handleAdd={handleAdd}
+          setFilterValue={setFilterValue}
+          filterValue={filterValue}
+          setNameEdit={setNameEdit}
+          nameEdit={nameEdit}
+          setPriceEdit={setPriceEdit}
+          priceEdit={priceEdit}
+      />
       {items.length > 0 && (
         <div className="goods">
           {items.map((item) => (
@@ -35,8 +48,8 @@ export const ItemsList = (
                   setPriceEdit={setPriceEdit}
                   item={item}
                   handleDelete={handleDelete}
-                  modalActive={modalActive}
-                  setModalActive={setModalActive}
+                  modalEditActive={modalEditActive}
+                  setModalEditActive={setModalEditActive}
                   handleEdit={handleEdit}
                   editItem={editItem}
                   setEditItem={setEditItem}

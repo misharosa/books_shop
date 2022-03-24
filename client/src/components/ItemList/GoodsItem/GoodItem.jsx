@@ -6,8 +6,8 @@ export const GoodItem = (
     {
         item,
         handleDelete,
-        modalActive,
-        setModalActive,
+        modalEditActive,
+        setModalEditActive,
         handleEdit,
         nameEdit,
         setNameEdit,
@@ -30,7 +30,7 @@ export const GoodItem = (
                     <button className="good__item-button" onClick={() => handleDelete(item.id)}>Delete</button>
                 </div>
             </div>
-            <Modal active={modalActive} setActive={setModalActive}>
+            <Modal active={modalEditActive} setActive={setModalEditActive}>
                 <form onSubmit={(e) => handleEdit(e, editItem)} className="form">
                     <label >
                         Name:

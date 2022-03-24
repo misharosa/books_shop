@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { deleteItemsFromServer, editItemFromServer, getItemsFromServer } from "../../api/api";
+import {addItemToServer, deleteItemsFromServer, editItemFromServer, getItemsFromServer} from "../../api/api";
 import { ItemsList } from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
 
@@ -8,18 +8,39 @@ export const BooksPage = ({ items, setItems }) => {
     const { name } = useParams()
     const [editItem, setEditItem] = useState({})
     const [filterValue, setFilterValue] = useState('');
-    const [modalActive, setModalActive] = useState(false);
+    const [modalEditActive, setModalEditActive] = useState(false);
+    const [modalAddActive, setModalAddActive] = useState(false)
     const [nameEdit, setNameEdit] = useState('')
     const [priceEdit, setPriceEdit] = useState('')
 
     useEffect(() => {
-        if (items.length === 0) {
             const getItems = async () => {
                 return await getItemsFromServer(name);
             };
             getItems().then((r) => setItems(r));
-        }
-    }, [name, setItems, items.length])
+
+    }, [name, setItems])
+
+   const handleAdd = (e) => {
+        e.preventDefault()
+       const newGood = {
+           name: nameEdit ,
+           price: priceEdit,
+           id: items.length + 1,
+           poster: "https://cdn4.vectorstock.com/i/1000x1000/23/48/shoping-and-different-goods-vector-4422348.jpg"
+       }
+
+       addItemToServer(name, newGood).then(r => r)
+
+        setItems(prev => [
+            ...prev,
+            newGood
+          ]
+        )
+       setModalAddActive(false)
+       setNameEdit('')
+       setPriceEdit('')
+   }
 
     const handleDelete = (itemId) => {
         deleteItemsFromServer(itemId).then(r => r)
@@ -30,11 +51,11 @@ export const BooksPage = ({ items, setItems }) => {
 
     const handleFind = (itemId) => {
         const editItem = items.find(item => item.id === itemId)
-
+        console.log("I`m here")
         setNameEdit(editItem.name)
         setPriceEdit(editItem.price)
-        setModalActive(true)
-
+        setModalEditActive(true)
+        console.log(modalEditActive)
         setEditItem({
             ...editItem,
             name: editItem.name,
@@ -44,7 +65,7 @@ export const BooksPage = ({ items, setItems }) => {
 
     const handleEdit = (e) => {
         e.preventDefault()
-        setModalActive(false)
+        setModalEditActive(false)
         const editItems = items.map(char => {
             if (char.id === editItem.id) {
                 const editItem = {
@@ -69,6 +90,11 @@ export const BooksPage = ({ items, setItems }) => {
     return (
         <div>
             <ItemsList
+                modalAddActive={modalAddActive}
+                setModalAddActive={setModalAddActive}
+                setModalEditActive={setModalEditActive}
+                modalEditActive={modalEditActive}
+                handleAdd={handleAdd}
                 setFilterValue={setFilterValue}
                 filterValue={filterValue}
                 setNameEdit={setNameEdit}
@@ -79,8 +105,6 @@ export const BooksPage = ({ items, setItems }) => {
                 handleDelete={handleDelete}
                 handleFind={handleFind}
                 items={handleItemsFilter}
-                modalActive={modalActive}
-                setModalActive={setModalActive}
                 editItem={editItem}
                 setEditItem={setEditItem}
             />
