@@ -1,112 +1,71 @@
-import React, { useEffect, useMemo, useState } from 'react';
-import {addItemToServer, deleteItemsFromServer, editItemFromServer, getItemsFromServer} from "../../api/api";
+import React, { useEffect, useState } from 'react';
+import { addItemToServer, deleteItemsFromServer, editItemFromServer, getItemsFromServer } from "../../api/api";
 import { ItemsList } from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
 
-export const BooksPage = ({ items, setItems }) => {
-
+export const BooksPage = () => {
     const { name } = useParams()
-    const [editItem, setEditItem] = useState({})
-    const [filterValue, setFilterValue] = useState('');
-    const [modalEditActive, setModalEditActive] = useState(false);
-    const [modalAddActive, setModalAddActive] = useState(false)
-    const [nameEdit, setNameEdit] = useState('')
-    const [priceEdit, setPriceEdit] = useState('')
+    const [items, setItems] = useState([]);
+    const [editItem, setEditItem] = useState({ editModal: false, addModal: false, name: '', price: '' })
 
     useEffect(() => {
-            const getItems = async () => {
-                return await getItemsFromServer(name);
-            };
-            getItems().then((r) => setItems(r));
+        const local = localStorage.getItem(name)
 
+        if (!local) {
+            getItemsFromServer(name).then((r) => {
+                localStorage.setItem(name, JSON.stringify(r))
+                setItems(r)
+            });
+        } else {
+            setItems(JSON.parse(local))
+        }
     }, [name, setItems])
 
    const handleAdd = (e) => {
         e.preventDefault()
-       const newGood = {
-           name: nameEdit ,
-           price: priceEdit,
+        const newGood = {
+           name: editItem.name ,
+           price: editItem.price,
            id: items.length + 1,
            poster: "https://cdn4.vectorstock.com/i/1000x1000/23/48/shoping-and-different-goods-vector-4422348.jpg"
-       }
+        }
 
-       addItemToServer(name, newGood).then(r => r)
-
-        setItems(prev => [
-            ...prev,
-            newGood
-          ]
-        )
-       setModalAddActive(false)
-       setNameEdit('')
-       setPriceEdit('')
+        addItemToServer(name, newGood).catch(e => console.log(e.message))
+        items.push(newGood)
+        setItems([...items])
+        localStorage.setItem(name, JSON.stringify([...items]))
+        setEditItem({ editModal:false, addModal: false })
    }
 
     const handleDelete = (itemId) => {
-        deleteItemsFromServer(itemId).then(r => r)
+        deleteItemsFromServer(name, itemId).catch(e => console.log(e.message))
         const filterDelete = items.filter(item => item.id !== itemId)
         setItems(filterDelete)
-
-    }
-
-    const handleFind = (itemId) => {
-        const editItem = items.find(item => item.id === itemId)
-        console.log("I`m here")
-        setNameEdit(editItem.name)
-        setPriceEdit(editItem.price)
-        setModalEditActive(true)
-        console.log(modalEditActive)
-        setEditItem({
-            ...editItem,
-            name: editItem.name,
-            price: editItem.price
-        })
+        localStorage.setItem(name, JSON.stringify([...filterDelete]))
     }
 
     const handleEdit = (e) => {
         e.preventDefault()
-        setModalEditActive(false)
-        const editItems = items.map(char => {
-            if (char.id === editItem.id) {
-                const editItem = {
-                    ...char,
-                    name: nameEdit,
-                    price: priceEdit
-                }
-                editItemFromServer("books", editItem).then(r => console.log(r))
-                return editItem
-            }
-            return char
-        })
-        setItems(editItems)
-    }
 
-    const handleItemsFilter = useMemo(() => {
-        return items.filter((item) =>
-            item.name.toLowerCase().includes(filterValue.toLowerCase())
-        );
-    }, [items, filterValue]);
+        const findEditItem = items.findIndex(i => editItem.id === i.id)
+
+        items.splice(findEditItem, 1, editItem)
+        setItems([...items])
+        localStorage.setItem(name, JSON.stringify([...items]))
+        editItemFromServer(name, editItem).catch(e => console.log(e.message))
+        setEditItem({editModal:false, addModal: false})
+    }
 
     return (
         <div>
             <ItemsList
-                modalAddActive={modalAddActive}
-                setModalAddActive={setModalAddActive}
-                setModalEditActive={setModalEditActive}
-                modalEditActive={modalEditActive}
-                handleAdd={handleAdd}
-                setFilterValue={setFilterValue}
-                filterValue={filterValue}
-                setNameEdit={setNameEdit}
-                setPriceEdit={setPriceEdit}
-                nameEdit={nameEdit}
-                priceEdit={priceEdit}
+                onAdd={handleAdd}
                 handleEdit={handleEdit}
                 handleDelete={handleDelete}
-                handleFind={handleFind}
-                items={handleItemsFilter}
                 editItem={editItem}
                 setEditItem={setEditItem}
+                items={items}
+                setItems={setItems}
             />
         </div>
     );

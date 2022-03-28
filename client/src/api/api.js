@@ -20,10 +20,9 @@ export const editItemFromServer = async (name, item) => {
 };
 
 // delete item
-export const deleteItemsFromServer = async (itemId) => {
+export const deleteItemsFromServer = async (name, itemId) => {
   try {
-    const { data } = await axios.delete(`http://localhost:3001/books/${itemId}`);
-    return data;
+    return await axios.delete(`http://localhost:3001/${name}/${itemId}`);
   } catch (e) {
     console.error(e.message);
   }
