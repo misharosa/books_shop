@@ -1,11 +1,11 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate, Link } from "react-router-dom";
 import "./ItemPage.css"
 import { Modal } from "../Modal/Modal";
+import { deleteItemsFromServer, editItemFromServer, getItemsFromServer } from "../../api/api";
 
-const ItemPage = (
+export const ItemPage = (
     {
-        items,
         setItems,
         setAllItemsObj,
         allItemsObj,
@@ -19,25 +19,33 @@ const ItemPage = (
     const [nameEdit, setNameEdit] = useState('')
     const [priceEdit, setPriceEdit] = useState('')
 
-    useEffect(() => {
-        setItem(items.find(item => item.id === id))
-
-        if (item !== undefined) {
-            setNameEdit(item.name)
-            setPriceEdit(item.price)
+    useEffect( () => {
+        async function setCurrentItem(){
+            const  data  = await getItemsFromServer(name)
+            const currentItem = data.find(item => item.id === id)
+            if (currentItem) {
+                setItem(currentItem)
+                setNameEdit(currentItem.name)
+                setPriceEdit(currentItem.price)
+            }
         }
-    },[id, items, setItem, item])
+        setCurrentItem().catch(e => console.log(e.message))
+    },[id, name, setItem])
 
     const handleEdit = (e) => {
         e.preventDefault()
         setModalActive(false)
-        const editItem = allItemsObj[name].map(char => {
+        const editItems = allItemsObj[name].map(char => {
             if (char.id === item.id) {
-                return {
+                const editItem = {
                     ...char,
                     name: nameEdit,
                     price: priceEdit
                 }
+
+                editItemFromServer(name, editItem).then(r => console.log(r))
+
+                return editItem
             }
 
             return char
@@ -45,14 +53,15 @@ const ItemPage = (
 
         setItem({...item, name: nameEdit, price: priceEdit})
 
-        setItems(editItem)
+        setItems(editItems)
         setAllItemsObj((prev) => ({
             ...prev,
-            [name]: editItem
+            [name]: editItems
         }))
     }
 
     const handleDelete = (itemId) => {
+        deleteItemsFromServer(name, itemId).then(r => r)
         const filterDelete = allItemsObj[name].filter(item => item.id !== itemId)
         setItems(filterDelete)
         setAllItemsObj((prev) => ({
@@ -78,23 +87,8 @@ const ItemPage = (
                 </div>
                 <img src="https://cdn-icons-png.flaticon.com/512/17/17699.png" alt="back_img" className="good__item_button-back" onClick={() => goBack()} />
             </div>
-            <Modal active={modalActive} setActive={setModalActive}>
-                <form onSubmit={handleEdit} className="form">
-                    <label >
-                        Name:
-                        <textarea className="form__item" value={nameEdit} onChange={(e) => setNameEdit(e.target.value) } />
-                    </label>
-                    <label>
-                        Price:
-                        <input className="form__item" value={priceEdit} onChange={(e) => setPriceEdit(e.target.value) } />
-                    </label>
-                    <button type="submit" className="form__button">Submit</button>
-                </form>
-            </Modal>
             </>
         }
         </>
     );
 };
-
-export default ItemPage;

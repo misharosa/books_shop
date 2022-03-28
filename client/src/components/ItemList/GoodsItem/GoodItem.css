@@ -13,10 +13,6 @@
     color: #666;
 }
 
-.goods__item:hover {
-    background-color: grey;
-}
-
 .goods_img {
     height: 200px;
     width: 200px;
@@ -24,4 +20,34 @@
 
 .goods_name {
     margin-bottom: 10px;
+}
+
+.goods_price {
+    margin-bottom: 10px;
+}
+
+.good__item-buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.good__item-button {
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    color: #666;
+    margin-left: 10px;
+    width: 70px;
+    padding: 10px;
+    text-decoration: none;
+    border: none;
+}
+
+.good__item-button:nth-child(2) {
+    color: #B22222;
+}
+
+.good__item-button:hover {
+    background-color: #555;
 }

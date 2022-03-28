@@ -1,54 +1,52 @@
-import React, { useEffect, useMemo, useState } from 'react';
-import { useParams } from "react-router-dom";
-import { getItemsFromServer} from "../../api/api";
-import { Search } from "../Search/Search";
-import { GoodItem } from "./GoodsItem/GoodItem";
-import "./ItemsList.css"
+import React from 'react';
+import { GoodItem } from './GoodsItem/GoodItem';
+import './ItemsList.css';
+import { Search } from '../Search/Search';
 
-const ItemsList = ({ items, setItems, allItemsObj, setAllItemsObj }) => {
-    const { name } = useParams()
-
-    const [filterValue, setFilterValue] = useState('')
-
-    useEffect(() => {
-        if(!Object.keys(allItemsObj).includes(name)) {
-            const getItems = async () => {
-                return await getItemsFromServer(name)
-            }
-            getItems().then(r => {
-                setItems(r)
-                setAllItemsObj((prev) => ({
-                        ...prev,
-                        [name]: r
-                }))
-            })
-        } else {
-            setItems(allItemsObj[name])
-        }
-    }, [setItems, name, allItemsObj, setAllItemsObj])
-
-    const handleItemsFilter = useMemo(() => {
-        return items.filter(item => item.name.toLowerCase().includes(filterValue.toLowerCase()))
-    },[items, filterValue])
-
-    return (
-        <>
-            <Search
-                setFilterValue={setFilterValue}
-                filterValue={filterValue}
-            />
-            {handleItemsFilter.length > 0 &&
-                <div className='goods'>
-                    {handleItemsFilter.map(item => (
-                        <div key={item.id} className="goods__item" >
-                            <GoodItem name={name} item={item}/>
-                        </div>
-                    ))}
-                </div>
-            }
-        </>
-    );
+export const ItemsList = ({
+  items, // лишити
+  handleDelete, // лишити
+  modalActive,
+  setModalActive,
+  handleEdit, // лишити
+  nameEdit,
+  setNameEdit,
+  priceEdit,
+  setPriceEdit,
+  editItem,
+  setEditItem,
+  handleFind,
+  filterValue,
+  setFilterValue, // решта все забрати
+}) => {
+  // пошук буде на рівні сторінки книжок
+  // дуже багато непотрiбних пропсів
+  return (
+    <>
+      <Search setFilterValue={setFilterValue} filterValue={filterValue} />
+      {items.length > 0 && (
+        <div className="goods">
+          {items.map((item) => (
+            <div key={item.id} className="goods__item">
+              <GoodItem
+                items={items}
+                nameEdit={nameEdit}
+                setNameEdit={setNameEdit}
+                priceEdit={priceEdit}
+                setPriceEdit={setPriceEdit}
+                item={item} // лишити
+                handleDelete={handleDelete} // лишити
+                modalActive={modalActive}
+                setModalActive={setModalActive}
+                handleEdit={handleEdit} // лишити
+                editItem={editItem}
+                setEditItem={setEditItem}
+                handleFind={handleFind} // решта забрати
+              />
+            </div>
+          ))}
+        </div>
+      )}
+    </>
+  );
 };
-
-
-export default ItemsList;
