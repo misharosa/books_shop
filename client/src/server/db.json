@@ -27,13 +27,6 @@
   ],
   "books": [
     {
-      "id": "js01",
-      "category": "books",
-      "name": "Девід Фленаган. JavaScript Кишеньковий довідник",
-      "poster": "https://images.unsplash.com/photo-1543002588-bfa74002ed7e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80",
-      "price": "750"
-    },
-    {
       "id": "data01",
       "category": "books",
       "name": "Алекс Бенкс та Єва Порселло. GraphQL",
