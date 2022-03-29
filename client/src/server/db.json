@@ -101,7 +101,8 @@
       "category": "stickers",
       "name": "Алекс Бенкс та Єва Порселло. GraphQL",
       "poster": "https://images.unsplash.com/photo-1593754500338-969a679d5ca3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
-      "price": "850"
+      "price": "850",
+      "editModal": true
     }
   ]
 }
