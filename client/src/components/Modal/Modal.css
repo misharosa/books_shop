@@ -61,3 +61,8 @@
     background-color: #555555;
     color:#FFFFFF;
 }
+
+.form__buttons {
+    display: flex;
+    justify-content: space-around;
+}

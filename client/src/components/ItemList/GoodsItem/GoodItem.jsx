@@ -4,7 +4,7 @@ import "./GoodItem.css"
 export const GoodItem = (
     {
         item,
-        handleDelete,
+        onDelete,
         onEdit
     }) => {
 
@@ -17,8 +17,8 @@ export const GoodItem = (
                     <div className="goods_price">{item.price} грн.</div>
                 </div>
                 <div className="good__item-buttons">
-                    <button className="good__item-button open-modal" onClick={() => onEdit({...item, editModal: true})}>Edit</button>
-                    <button className="good__item-button" onClick={() => handleDelete(item.id)}>Delete</button>
+                    <button className="good__item-button open-modal" onClick={() => onEdit(item)}>Edit</button>
+                    <button className="good__item-button" onClick={() => onDelete(item.id)}>Delete</button>
                 </div>
             </div>
 
