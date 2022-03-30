@@ -1,13 +1,9 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import "./GoodItem.css"
+import { ThemeContext } from "../../Context/context";
 
-export const GoodItem = (
-    {
-        item,
-        onDelete,
-        onEdit
-    }) => {
-
+export const GoodItem = ({ item }) => {
+        const { handleDelete, handleEditBook} = useContext(ThemeContext)
     return (
         <>
             <div>
@@ -17,8 +13,8 @@ export const GoodItem = (
                     <div className="goods_price">{item.price} грн.</div>
                 </div>
                 <div className="good__item-buttons">
-                    <button className="good__item-button open-modal" onClick={() => onEdit(item)}>Edit</button>
-                    <button className="good__item-button" onClick={() => onDelete(item.id)}>Delete</button>
+                    <button className="good__item-button open-modal" onClick={() => handleEditBook(item)}>Edit</button>
+                    <button className="good__item-button" onClick={() => handleDelete(item.id)}>Delete</button>
                 </div>
             </div>
 
