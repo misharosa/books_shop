@@ -3,11 +3,7 @@ import { GoodItem } from './GoodsItem/GoodItem';
 import './ItemsList.css';
 import {ThemeContext} from "../Context/context";
 
-export const ItemsList = (
-    {
-        onDelete,
-        onEdit
-    }) => {
+export const ItemsList = () => {
     const { handleItemsFilter } = useContext(ThemeContext)
   return (
     <>
@@ -15,11 +11,7 @@ export const ItemsList = (
         <div className="goods">
           {handleItemsFilter.map((item) => (
             <div key={item.id} className="goods__item">
-              <GoodItem
-                  item={item}
-                  onDelete={onDelete}
-                  onEdit={onEdit}
-              />
+              <GoodItem item={item} />
             </div>
           ))}
         </div>
