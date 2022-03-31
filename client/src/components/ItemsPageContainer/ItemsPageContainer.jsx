@@ -10,6 +10,7 @@ export const ItemsPageContainer = () => {
     const { name } = useParams()
     const [items, setItems] = useState([]);
     const [filterValue, setFilterValue] = useState('');
+    const [totalAmount, setTotalAmount] = useState(0)
 
     const [editItem, setEditItem] = useState(null)
     const [addItem, setAddItem] = useState(null)
@@ -80,6 +81,14 @@ export const ItemsPageContainer = () => {
         );
     }, [items, filterValue]);
 
+    const handleBuy = (itemBuy) => {
+        setTotalAmount(prev => (prev + +itemBuy.price))
+    }
+
+    const handleCancelBuy = () => {
+        setTotalAmount(0)
+    }
+
     return (
         <div>
             <ThemeContext.Provider value={{
@@ -88,7 +97,10 @@ export const ItemsPageContainer = () => {
                 handleAdd,
                 handleFilter,
                 handleDelete,
-                handleEditBook
+                handleEditBook,
+                handleBuy,
+                handleCancelBuy,
+                totalAmount
             }}>
                 <Search />
                 <MemorizeItemsList />

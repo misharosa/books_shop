@@ -3,7 +3,7 @@ import "./GoodItem.css"
 import { ThemeContext } from "../../Context/context";
 
 export const GoodItem = ({ item }) => {
-        const { handleDelete, handleEditBook} = useContext(ThemeContext)
+        const { handleDelete, handleEditBook, handleBuy} = useContext(ThemeContext)
     return (
         <>
             <div>
@@ -14,6 +14,7 @@ export const GoodItem = ({ item }) => {
                 </div>
                 <div className="good__item-buttons">
                     <button className="good__item-button open-modal" onClick={() => handleEditBook(item)}>Edit</button>
+                    <button className="form__button" onClick={() => handleBuy(item)}>Buy</button>
                     <button className="good__item-button" onClick={() => handleDelete(item.id)}>Delete</button>
                 </div>
             </div>

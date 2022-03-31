@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { ThemeContext } from "../Context/context";
 
 export const Search = () => {
-    const { handleAdd, handleFilter, filterValue } = useContext(ThemeContext)
+    const { handleAdd, handleFilter, filterValue, totalAmount, handleCancelBuy } = useContext(ThemeContext)
     return (
         <div className="search__container">
             <img
@@ -21,6 +21,12 @@ export const Search = () => {
                     onChange={(e) => handleFilter(e.target.value)}
                 />
             </label>
+            <div>
+                Total price: {totalAmount} грн.
+                { totalAmount > 0 &&
+                    <button className="form__button" onClick={() => handleCancelBuy()}>Cancel</button>
+                }
+            </div>
         </div>
     );
 };
