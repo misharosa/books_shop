@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/books_shop/static/css/main.ec78caac.chunk.css",
-    "main.js": "/books_shop/static/js/main.e492cf83.chunk.js",
-    "main.js.map": "/books_shop/static/js/main.e492cf83.chunk.js.map",
+    "main.js": "/books_shop/static/js/main.516e09b2.chunk.js",
+    "main.js.map": "/books_shop/static/js/main.516e09b2.chunk.js.map",
     "runtime-main.js": "/books_shop/static/js/runtime-main.bade7935.js",
     "runtime-main.js.map": "/books_shop/static/js/runtime-main.bade7935.js.map",
     "static/js/2.4b82328c.chunk.js": "/books_shop/static/js/2.4b82328c.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.bade7935.js",
     "static/js/2.4b82328c.chunk.js",
     "static/css/main.ec78caac.chunk.css",
-    "static/js/main.e492cf83.chunk.js"
+    "static/js/main.516e09b2.chunk.js"
   ]
 }
