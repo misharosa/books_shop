@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { addItemFromServer, deleteItemsFromServer, editItemFromServer, getItemsFromServer } from "../../api/api";
-import { ItemsList } from "../ItemList/ItemList";
+import { MemorizeItemsList } from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
 import { Search } from "../Search/Search";
 import { Modal } from "../Modal/Modal";
@@ -91,7 +91,7 @@ export const BooksPage = () => {
                 handleEditBook
             }}>
                 <Search />
-                <ItemsList />
+                <MemorizeItemsList />
             </ThemeContext.Provider>
 
             <Modal active={addItem} setActive={setAddItem} >
@@ -113,8 +113,10 @@ export const BooksPage = () => {
                             onChange={(e) => setAddItem({...addItem, price: e.target.value})}
                         />
                     </label>
-                    <button className="form__button" onClick={handleAddNewItem}>Add</button>
-                    <button className="form__button" onClick={() => setAddItem(null)}>Cancel</button>
+                    <div className="form__buttons">
+                        <button className="form__button" onClick={handleAddNewItem}>Add</button>
+                        <button className="form__button" onClick={() => setAddItem(null)}>Cancel</button>
+                    </div>
                 </form>
             </Modal>
             <Modal active={editItem} setActive={setEditItem}>
@@ -137,19 +139,10 @@ export const BooksPage = () => {
                     </label>
                     <div className="form__buttons">
                         <button type="submit" className="form__button" onClick={handleEdit}>Submit</button>
-                        <button type="submit" className="form__button" onClick={() => handleEditBook(null)}>Cancel</button>
+                        <button type="submit" className="form__button" onClick={() => setEditItem(null)}>Cancel</button>
                     </div>
                 </form>
             </Modal>
         </div>
     );
 };
-
-// {/* Пошук тут, відповідно не треба давати зайві пропси +++ */ }
-// {/* список повинен бути нерозумним, він відображає продукти і привязує до них якісь дії, якщо ми їх передали +++ */}
-// {/* його не хвилює, що далі станеться і так далі +++ */}
-// {/* чому так? Якщо в тебе буде 5 подібних сторінок - ти будеш створювати для кожної новий список? */}
-// {/* Звичайно ні, ми створюємо лише один, який просто відображає та привязує, відповідно, якщо буде 5 сторінок - уся логіка буде в них, а не в списку */}
-// {/* Список -> прийняв, відобразив, прикріпив дії, якщо вони є - це все +++ */}
-// {/* Фільтрація, модалки та інша логіка повинна буде вище (у нашому випадку це ця компонента <BooksPage>) +++ */}
-// {/* Коли поміняєш це все, я хочу щоб ти використав реакт контекст для зберігання продуктів і дій для обробки продуктів(едітб добавити, видалити) +++ */}

@@ -23,12 +23,6 @@
       "name": "Good Housekeeping",
       "poster": "https://www.picclickimg.com/d/l400/pict/304371503836_/Good-Housekeeping-Magazine-Get-Organized-Time-Saving-Meals.jpg",
       "price": 320
-    },
-    {
-      "name": "Mobile",
-      "price": "2000",
-      "id": 5,
-      "poster": "https://cdn4.vectorstock.com/i/1000x1000/23/48/shoping-and-different-goods-vector-4422348.jpg"
     }
   ],
   "books": [
@@ -40,12 +34,25 @@
       "price": "750"
     },
     {
+      "id": "js02",
+      "category": "books",
+      "name": "Девід Фленаган. JavaScript Детальний посібник",
+      "poster": "https://images.unsplash.com/photo-1532012197267-da84d127e765?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80",
+      "price": "1450"
+    },
+    {
+      "id": "js03",
+      "category": "books",
+      "name": "Алекс Бенкс та Єва Порселло. React та Redux",
+      "poster": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=667&q=80",
+      "price": 950
+    },
+    {
       "id": "data01",
       "category": "books",
       "name": "Алекс Бенкс та Єва Порселло. GraphQL",
       "poster": "https://images.unsplash.com/photo-1532012197267-da84d127e765?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80",
-      "price": "850",
-      "editModal": true
+      "price": 850
     },
     {
       "id": "js04",
@@ -64,9 +71,9 @@
     {
       "id": "video02",
       "category": "video",
-      "name": "Алекс Бенкс та Єва Порселло. React та Redux",
+      "name": "Анімації в JavaScript",
       "poster": "https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=746&q=80",
-      "price": "950"
+      "price": 1550
     },
     {
       "id": "video03",
@@ -99,10 +106,9 @@
     {
       "id": "sticker03",
       "category": "stickers",
-      "name": "Алекс Бенкс та Єва Порселло. GraphQL",
+      "name": "Набір наліпок FullStack",
       "poster": "https://images.unsplash.com/photo-1593754500338-969a679d5ca3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
-      "price": "850",
-      "editModal": true
+      "price": 1550
     }
   ]
 }

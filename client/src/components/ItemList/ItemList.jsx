@@ -1,9 +1,9 @@
 import React, {useContext} from 'react';
 import { GoodItem } from './GoodsItem/GoodItem';
 import './ItemsList.css';
-import {ThemeContext} from "../Context/context";
+import { ThemeContext } from "../Context/context";
 
-export const ItemsList = () => {
+const ItemsList = () => {
     const { handleItemsFilter } = useContext(ThemeContext)
   return (
     <>
@@ -19,3 +19,5 @@ export const ItemsList = () => {
     </>
   );
 };
+
+export const MemorizeItemsList = React.memo(ItemsList)
