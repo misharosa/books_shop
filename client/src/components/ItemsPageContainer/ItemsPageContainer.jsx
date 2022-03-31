@@ -6,7 +6,7 @@ import { Search } from "../Search/Search";
 import { Modal } from "../Modal/Modal";
 import { ThemeContext } from "../Context/context";
 
-export const BooksPage = () => {
+export const ItemsPageContainer = () => {
     const { name } = useParams()
     const [items, setItems] = useState([]);
     const [filterValue, setFilterValue] = useState('');
