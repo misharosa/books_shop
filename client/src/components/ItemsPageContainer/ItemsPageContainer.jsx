@@ -75,10 +75,10 @@ export const ItemsPageContainer = () => {
         setFilterValue(_filterValue);
     };
 
-    const handleItemsFilter = useMemo(() => {
-        return items.filter((item) =>
-            item.name.toLowerCase().includes(filterValue.toLowerCase())
-        );
+    const filterItems = useMemo(() => {
+        const callbackFilter = (item) => item.name.toLowerCase().includes(filterValue.toLowerCase())
+
+        return items.filter(callbackFilter);
     }, [items, filterValue]);
 
     const handleBuy = (itemBuy) => {
@@ -89,24 +89,32 @@ export const ItemsPageContainer = () => {
         setTotalAmount(0)
     }
 
+    const handleCloseAddModal = () => {
+        setEditItem(null)
+    }
+
+    const handleCloseEditModal = () => {
+        setEditItem(null)
+    }
+
     return (
         <div>
+            <Search
+                onAdd={handleAdd}
+                onFilter={handleFilter}
+                onCancelBuy={handleCancelBuy}
+                filterValue={filterValue}
+                totalAmount={totalAmount}
+            />
             <ThemeContext.Provider value={{
-                filterValue,
-                handleItemsFilter,
-                handleAdd,
-                handleFilter,
+                filterItems,
                 handleDelete,
                 handleEditBook,
-                handleBuy,
-                handleCancelBuy,
-                totalAmount
+                handleBuy
             }}>
-                <Search />
                 <MemorizeItemsList />
             </ThemeContext.Provider>
-
-            <Modal active={addItem} setActive={setAddItem} >
+            <Modal active={addItem} setActive={handleAddNewItem} >
                 <h2>You can add goods!</h2>
                 <form className="form" method="get">
                     <label>
@@ -127,11 +135,11 @@ export const ItemsPageContainer = () => {
                     </label>
                     <div className="form__buttons">
                         <button className="form__button" onClick={handleAddNewItem}>Add</button>
-                        <button className="form__button" onClick={() => setAddItem(null)}>Cancel</button>
+                        <button className="form__button" onClick={handleCloseAddModal}>Cancel</button>
                     </div>
                 </form>
             </Modal>
-            <Modal active={editItem} setActive={setEditItem}>
+            <Modal active={editItem} setActive={handleCloseEditModal}>
                 <form className="form">
                     <label >
                         Name:
@@ -151,7 +159,7 @@ export const ItemsPageContainer = () => {
                     </label>
                     <div className="form__buttons">
                         <button type="submit" className="form__button" onClick={handleEdit}>Submit</button>
-                        <button type="submit" className="form__button" onClick={() => setEditItem(null)}>Cancel</button>
+                        <button type="submit" className="form__button" onClick={handleCloseEditModal}>Cancel</button>
                     </div>
                 </form>
             </Modal>

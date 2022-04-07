@@ -4,12 +4,12 @@ import './ItemsList.css';
 import { ThemeContext } from "../Context/context";
 
 const ItemsList = () => {
-    const { handleItemsFilter } = useContext(ThemeContext)
+    const { filterItems } = useContext(ThemeContext)
   return (
     <>
-      {handleItemsFilter.length > 0 && (
+      {filterItems.length > 0 && (
         <div className="goods">
-          {handleItemsFilter.map((item) => (
+          {filterItems.map((item) => (
             <div key={item.id} className="goods__item">
               <GoodItem item={item} />
             </div>

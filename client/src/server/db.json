@@ -23,6 +23,12 @@
       "name": "Good Housekeeping",
       "poster": "https://www.picclickimg.com/d/l400/pict/304371503836_/Good-Housekeeping-Magazine-Get-Organized-Time-Saving-Meals.jpg",
       "price": 320
+    },
+    {
+      "id": 0.2903892248820519,
+      "name": "",
+      "price": "",
+      "poster": "https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=746&q=80"
     }
   ],
   "books": [
@@ -109,6 +115,18 @@
       "name": "Набір наліпок FullStack",
       "poster": "https://images.unsplash.com/photo-1593754500338-969a679d5ca3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
       "price": 1550
+    },
+    {
+      "id": 0.657594234389479,
+      "name": "",
+      "price": "",
+      "poster": "https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=746&q=80"
+    },
+    {
+      "id": 0.2873067158965883,
+      "name": "",
+      "price": "",
+      "poster": "https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=746&q=80"
     }
   ]
 }
