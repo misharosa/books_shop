@@ -90,7 +90,7 @@ export const ItemsPageContainer = () => {
     }
 
     const handleCloseAddModal = () => {
-        setEditItem(null)
+        setAddItem(null)
     }
 
     const handleCloseEditModal = () => {
@@ -114,7 +114,7 @@ export const ItemsPageContainer = () => {
             }}>
                 <MemorizeItemsList />
             </ThemeContext.Provider>
-            <Modal active={addItem} setActive={handleAddNewItem} >
+            <Modal active={addItem} setActive={handleCloseAddModal} >
                 <h2>You can add goods!</h2>
                 <form className="form" method="get">
                     <label>
