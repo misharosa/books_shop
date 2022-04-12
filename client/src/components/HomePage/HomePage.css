@@ -3,6 +3,13 @@
     flex-direction: column;
 }
 
+@media (max-height: 655px) {
+    .store {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+}
+
 .store__list {
     display: inline-flex;
     justify-content: center;

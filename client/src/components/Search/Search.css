@@ -5,3 +5,15 @@
 
     padding-left: 15px;
 }
+
+.modal__add__img {
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+}
+
+.search__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
